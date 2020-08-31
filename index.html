@@ -17,8 +17,6 @@
         <div class="jumbotron text-center bg-dark text-light">
             <h1 class="app-title">Weather Dashboard</h1>
         </div>
-
-
         <main class="flex-row justify-space-between">
             <div class="col-12 col-md-3 bg-light">
                 <!-- Search textbox -->
@@ -30,23 +28,21 @@
                 <!-- search history list-->
                 <ul class="list-group" id="search-history"></ul>
             </div>
-            
+        
             <div class="col-12 col-md-8">
                 <!-- today's weather -->
                 <div class="card" id="current-weather"></div>
                 
                 <!-- 5 day forecast cards-->
-                <h4 class="hide">5-day Forecast:</h4>
-                <div class="card-deck">
-                    <div class="card bg-primary text-light" id="day-1"></div>
-                    <div class="card bg-primary text-light" id="day-2"></div>
-                    <div class="card bg-primary text-light" id="day-3"></div>
-                    <div class="card bg-primary text-light" id="day-4"></div>
-                    <div class="card bg-primary text-light" id="day-5"></div>
-                </div>
-
+                <h4>5-day Forecast:</h4>
+                <div class="card-deck" id="card-deck">
+                    <div class="card bg-primary text-light" id="day1"></div>
+                    <div class="card bg-primary text-light" id="day2"></div>
+                    <div class="card bg-primary text-light" id="day3"></div>
+                    <div class="card bg-primary text-light" id="day4"></div>
+                    <div class="card bg-primary text-light" id="day5"></div>
+                </di>
             </div>
-
         </main>
     
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

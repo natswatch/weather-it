@@ -6,7 +6,7 @@ body {
 margin: 0;
 padding: 0;
 line-height: 2.5;
-font-size: 18px;
+font-size: 20px;
 }
 
 .jumbotron {
@@ -35,13 +35,27 @@ i {
     padding: 9px 2px;
 }
 
+main {
+    padding: 10px;
+}
+
 .flex-row {
     display: flex;
     flex-wrap: wrap;
-  }
+}
   
-  .flex-column {
+.flex-column {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-  }
+}
+
+.card {
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+
+.card-deck {
+    padding: 5px 2px;
+}
+
