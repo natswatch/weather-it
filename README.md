@@ -10,3 +10,5 @@ https://natswatch.github.io/weather-it
 
 # Github Repo URL
 https://github.com/natswatch/weather-it
+
+![image](https://user-images.githubusercontent.com/24613646/91691385-65ef1380-eb1c-11ea-8553-0b58b711d5ea.png)
