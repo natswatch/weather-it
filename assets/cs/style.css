@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+margin: 0;
+padding: 0;
+line-height: 1.5;
+font-size: 16px;
+}
+
+.jumbotron {
+
+    padding: 20px;
+
+}
+
+h1 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 18rpx;
+}
+
+input {
+    width: 70%;
+    padding: 4px;
+    border: 2px solid gainsboro;
+    border-radius: 4px;
+}
+ 
+i {
+    font-size: 12px;
+    padding: 0 0;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
