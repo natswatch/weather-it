@@ -20,7 +20,7 @@
 
 
         <main class="flex-row justify-space-between">
-            <div class="col-12 col-md-2 bg-light">
+            <div class="col-12 col-md-3 bg-light">
                 <!-- Search textbox -->
                 <form id="user-form" class="card-body">
                     <h3>Search for a city:</h3>
@@ -31,49 +31,20 @@
                 <ul class="list-group" id="search-history"></ul>
             </div>
             
-            <div class="col-12 col-md-10">
+            <div class="col-12 col-md-8">
                 <!-- today's weather -->
                 <div class="card" id="current-weather"></div>
                 
                 <!-- 5 day forecast cards-->
-                <div class="row justify-content-star five-day-forecast">
-                        <div class="col-2 card-body">
-                            <h4 id="city-title">city-title</h4>
-                            <span id="city-temp">city-title</span>
-                            <span id="city-humidity">city-title</span>
-                            <span id="city-wind">city-title</span>
-                            <span id="city-uv">city-title</span>
-                        </div>
-                        <div class="col-1 card-body">
-                            <h4 id="city-title"></h4>
-                            <span id="city-temp"></span>
-                            <span id="city-humidity"></span>
-                            <span id="city-wind"></span>
-                            <span id="city-uv"></span>
-                        </div>
-                        <div class="col-1 card-body">
-                            <h4 id="city-title"></h4>
-                            <span id="city-temp"></span>
-                            <span id="city-humidity"></span>
-                            <span id="city-wind"></span>
-                            <span id="city-uv"></span>
-                        </div>
-                        <div class="col-1 card-body">
-                            <h4 id="city-title"></h4>
-                            <span id="city-temp"></span>
-                            <span id="city-humidity"></span>
-                            <span id="city-wind"></span>
-                            <span id="city-uv"></span>
-                        </div>
-                        <div class="col-1card-body">
-                            <h4 id="city-title"></h4>
-                            <span id="city-temp"></span>
-                            <span id="city-humidity"></span>
-                            <span id="city-wind"></span>
-                            <span id="city-uv"></span>
-                        </div>
-                    </div>
+                <h4 class="hide">5-day Forecast:</h4>
+                <div class="card-deck">
+                    <div class="card bg-primary text-light" id="day-1"></div>
+                    <div class="card bg-primary text-light" id="day-2"></div>
+                    <div class="card bg-primary text-light" id="day-3"></div>
+                    <div class="card bg-primary text-light" id="day-4"></div>
+                    <div class="card bg-primary text-light" id="day-5"></div>
                 </div>
+
             </div>
 
         </main>
