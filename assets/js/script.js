@@ -8,6 +8,7 @@ var cardDeckEl = document.querySelector("#card-deck");
 
 var currentData = {};
 var forecastData = {};
+var historyItems = [];
 
 
 // fetch current weather info
@@ -48,27 +49,15 @@ var displayCurrentWeather = function(weather, city) {
     cityTitleEl.textContent = weatherMain.name + " " + dateText;
     currentWeatherEl.appendChild(cityTitleEl);
 
-    var imgEl = document.createElement("img");
-    var iconId = weatherMain.weather[0].icon;
-    imgEl.setAttribute("src", getIconImgUrl(iconId));
-    imgEl.setAttribute("width", "50px");
-    imgEl.setAttribute("height", "50px");
-    cityTitleEl.appendChild(imgEl);
-    
-
-    var currentTemp = document.createElement("span")
-    currentTemp.textContent = "Temperature: " + Math.round(weatherMain.main.temp) + " °F" ;
-    currentWeatherEl.appendChild(currentTemp);
-
-    var currentHumidity = document.createElement("span")
-    currentHumidity.textContent = "Humidity: " + weatherMain.main.humidity + " %"  ;
-    currentWeatherEl.appendChild(currentHumidity);
+    addWeatherIcon(weatherMain, cityTitleEl);
+    addTempText(weatherMain, currentWeatherEl);
+    addHumidText(weatherMain, currentWeatherEl);
 
     var currentWind = document.createElement("span")
     currentWind.textContent = "Wind Speed: " + weatherMain.wind.speed + " MPH"  ;
-
     currentWeatherEl.appendChild(currentWind);
 
+    // coordinates for uv index
     const lat = weatherMain.coord.lat;
     const lon = weatherMain.coord.lon;
 
@@ -84,6 +73,16 @@ var fetchAndDisplayUv = function(lat, lon) {
         .then(function(response){
             response.json().then(function(data){
                 var currentUv = document.createElement("span");
+                // color code uv index value
+                if (data.value <= 2) {
+                    currentUv.setAttribute("class", "bg-success");
+                } else if (data.value <= 5 ) {
+                    currentUv.setAttribute("class", "bg-warning");
+                } else if (data.value <= 7 ) {
+                    currentUv.setAttribute("class", "bg-orange");
+                } else {
+                    currentUv.setAttribute("class", "bg-danger");
+                }
                 currentUv.textContent = "UV Index: " + data.value;
             
                 currentWeatherEl.appendChild(currentUv);
@@ -92,7 +91,6 @@ var fetchAndDisplayUv = function(lat, lon) {
         .catch(function(error) {
             alert("Unable to connect to OpenWeather");
         });
-
 };
 
 // calls and saves weather data
@@ -157,7 +155,6 @@ var addWeatherIcon = function(weatherMain, ele) {
 };
 
 var addTempText = function(weatherMain, ele) {
-
     var temp = document.createElement("span")
     temp.textContent = "Temp: " + Math.round(weatherMain.main.temp) + " °F" ;
 
@@ -190,6 +187,7 @@ var addSearchItem = function(city) {
     searchItemEl.appendChild(historyButtonEl);
     searchHistoryEl.prepend(searchItemEl);
 };
+
 
 // resets elements
 function removeAllChildNodes(parent) {
@@ -225,7 +223,6 @@ var historySelectHandler = function(event) {
         alert("Please enter the name of a city!");
     }
 };
-
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 searchHistoryEl.addEventListener("click", historySelectHandler);
