@@ -10,6 +10,7 @@ var currentData = {};
 var forecastData = {};
 var historyItems = [];
 
+var listI = 0;
 
 // fetch current weather info
 var getCurrentWeather = function(cityName) {
@@ -186,6 +187,9 @@ var addSearchItem = function(city) {
 
     searchItemEl.appendChild(historyButtonEl);
     searchHistoryEl.prepend(searchItemEl);
+    
+    localStorage.setItem(listI, city);
+    listI++;
 };
 
 
@@ -224,5 +228,21 @@ var historySelectHandler = function(event) {
     }
 };
 
+var renderSearchList = function() {
+
+    if (localStorage.length === 0) {
+        return;
+    } else {
+        for(var i=0; i < localStorage.length; i++) {
+            var city = localStorage.getItem(i);
+            $("#search-history").append(`<li class="list-group-item"><button class="btn btn-white" type="submit">${city}</button></li>`);
+        }
+    }
+    listI = i;
+    
+};
+
+
+renderSearchList();
 userFormEl.addEventListener("submit", formSubmitHandler);
 searchHistoryEl.addEventListener("click", historySelectHandler);
